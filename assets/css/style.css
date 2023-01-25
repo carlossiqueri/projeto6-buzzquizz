@@ -127,13 +127,14 @@ h2 {
     margin-left: 15px;
 }
 
-.my-quizzes-list {
+.my-quizzes-all {
     display: flex;
     width: 1051px;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 12px;
 }
+
 
 .my-quiz {
     position: relative;
@@ -217,6 +218,14 @@ h2 {
    }
 
    .all-quizzes {
+    width: 345px;
+   }
+
+   .my-quizzes {
+    width: 345px;
+   }
+
+   .my-quizzes-all {
     width: 345px;
    }
 }
