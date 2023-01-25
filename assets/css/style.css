@@ -17,6 +17,7 @@ header {
     position: fixed;
     top: 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 1;
 }
 
 h1 {
@@ -52,6 +53,7 @@ h2 {
 }
 
 /*PRIMEIRA TELA (EVE)*/
+
 /*BOTAO CRICAÇÃO DE QUIZ TELA INICIAL*/
 
 .first-page.hidden {
@@ -178,6 +180,7 @@ h2 {
 .quiz {
     position: relative;
     margin-bottom: 12px;
+    cursor: pointer;
 }
 
 .quiz img {
@@ -196,3 +199,26 @@ h2 {
     color: #FFFFFF;
     text-align: center;
 }
+
+@media screen and (max-width: 375px)  {
+
+  header {
+    width: 375px;
+    z-index: 1;
+   }
+
+   .menu-quiz {
+    width: 340px;    
+    margin-top: 100px;
+   }
+
+   .quiz-list {
+    width: 345px;
+   }
+
+   .all-quizzes {
+    width: 345px;
+   }
+}
+
+/*FIM DA PRIMEIRA TELA (EVE)*/
