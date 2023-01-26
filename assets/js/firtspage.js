@@ -1,14 +1,14 @@
 let quizObject = {
-	title: "",
-	image: "",
-	questions:[],
-	levels:[]
+    title: "",
+    image: "",
+    questions: [],
+    levels: []
 }
 
 let i;
 let quizzesArray = []
 let firstPage = document.querySelector('.first-page')
-let quizCreation = document.querySelector('.quiz-creation')
+let quizCreation = document.querySelector('.quizz-creation')
 
 //FUNÇÃO IR PARA PAGINA DE CRIAÇÃO DE QUIZ
 function pageCreateQuiz() {
@@ -17,7 +17,7 @@ function pageCreateQuiz() {
 }
 
 //FUNÇÃO TRAZER QUIZZES DO SERVIDOR
-function getQuizzes(){
+function getQuizzes() {
     const promisse = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes')
     promisse.then(getQuizzesSucess)
 
@@ -29,11 +29,11 @@ function getQuizzes(){
 }
 
 // FUNÇÃO DE PEGAR QUIZZES E MOSTRAR NA TELA
-function getQuizzesSucess(element){
+function getQuizzesSucess(element) {
     const showQuiz = document.querySelector('.all-quizzes')
     showQuiz.innerHTML = '';
 
-    for(i = 49; i >= 0; i = i-1){ 
+    for (i = 49; i >= 0; i = i - 1) {
         quizzesArray.unshift(element.data[i])
         const showQuizList = `
         <div class="quiz" onclick="goToQuizz(this)">

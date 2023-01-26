@@ -30,12 +30,13 @@ main {
     margin-top: 69px;
 }
 
-.quiz-creation.hidden {
+.quizz-creation.hidden {
     display: none;
 }
 
-.quiz-creation {
+.quizz-creation {
     margin-top: 140px;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -45,7 +46,7 @@ h2 {
     font-size: 23px;
 }
 
-.quiz-basic-info {
+.quizz-basic-info {
     margin: 27px auto 85px;
     padding: 21px 20px 15px 16px;
     width: 600px;
