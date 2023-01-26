@@ -1,4 +1,4 @@
-let quizObjeto = {
+let quizObject = {
 	title: "",
 	image: "",
 	questions:[],
@@ -29,16 +29,16 @@ function getQuizzes(){
 }
 
 // FUNÇÃO DE PEGAR QUIZZES E MOSTRAR NA TELA
-function getQuizzesSucess(elemento){
+function getQuizzesSucess(element){
     const showQuiz = document.querySelector('.all-quizzes')
     showQuiz.innerHTML = '';
 
     for(i = 49; i >= 0; i = i-1){ 
-        quizzesArray.unshift(elemento.data[i])
+        quizzesArray.unshift(element.data[i])
         const showQuizList = `
         <div class="quiz" onclick="goToQuizz(this)">
-            <img src=${elemento.data[i].image}>
-            <figcaption>${elemento.data[i].title}</figcaption>
+            <img src=${element.data[i].image}>
+            <figcaption>${element.data[i].title}</figcaption>
         </div>`
 
         showQuiz.innerHTML += showQuizList
