@@ -82,17 +82,18 @@
         <!--FIM DA PRIMIRA PÁGINA (EVE)-->
 
         <!-- Início das telas de criação do quiz. (guil)-->
-        <section class="quiz-creation hidden">
+        <section class="quizz-creation hidden">
             <h2>
                 Comece pelo começo
             </h2>
-            <div class="quiz-basic-info">
+            <div class="quizz-basic-info">
                 <input type="text" placeholder="Título do seu quizz">
-                <input type="text" placeholder="URL da imagem do seu quizz">
+                <input type="url" placeholder="URL da imagem do seu quizz">
                 <input type="text" placeholder="Quantidade de perguntas do quizz">
                 <input type="text" placeholder="Quantidade de níveis do quizz">
             </div>
-            <button class="create-questions-button">Prosseguir para criar perguntas</button>
+            <button class="create-questions-button" onclick="saveAndGoToQuizzQuestions()">Prosseguir para criar
+                perguntas</button>
         </section>
     </main>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
