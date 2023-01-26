@@ -74,7 +74,7 @@ input[type=text]::placeholder {
     font-style: italic;
 }
 
-button {
+.create-questions-button {
     cursor: pointer;
     width: 367px;
     height: 54px;
@@ -124,7 +124,7 @@ button {
     margin-bottom: 30px;
 }
 
-.menu-button {
+.menu-button button {
     cursor: pointer;
     height: 40px;
     width: 151px;
