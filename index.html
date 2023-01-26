@@ -21,8 +21,80 @@
     </header>
     <main>
 
+        <!--INCIO PRIMEIRA TELA (EVE)-->
+        <div class="first-page">
+            <div class="menu-quiz ">
+                <div class="menu-body">
+                    <div class="menu-text">
+                        <p>Você não criou nenhum quizz ainda :(</p>
+                    </div>
+                    <div class="menu-button">
+                        <button onclick="pageCreateQuiz()">Criar Quizz</button>
+                    </div>
+                </div>
+            </div>
+            <div class="my-quizzes hidden">
+                <div class="title-my-quizzes">
+                    <p>Seus Quizzes</p>
+                    <ion-icon name="add-circle"></ion-icon>
+                </div>
+                <div class="my-quizzes-all">
+                    <div class="my-quizzes-list">
+                        <div class="my-quiz">
+                            <img src="assets/img/umb.jpeg" alt="">
+                            <figcaption>Teste</figcaption>
+                        </div>
+                    </div>
+                    <div class="my-quizzes-list">
+                        <div class="my-quiz">
+                            <img src="assets/img/umb.jpeg" alt="">
+                            <figcaption>Teste</figcaption>
+                        </div>
+                    </div>
+                    <div class="my-quizzes-list">
+                        <div class="my-quiz">
+                            <img src="assets/img/umb.jpeg" alt="">
+                            <figcaption>Teste</figcaption>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-list">
+                <p>Todos os Quizzes</p>
+                <div class="all-quizzes">
+                    <div class="quiz">
+                        <img src="assets/img/umb.jpeg" alt="">
+                        <figcaption>Teste</figcaption>
+                    </div>
+                    <div class="quiz">
+                        <img src="assets/img/umb.jpeg" alt="">
+                        <figcaption>Teste</figcaption>
+                    </div>
+                    <div class="quiz">
+                        <img src="assets/img/umb.jpeg" alt="">
+                        <figcaption>Teste</figcaption>
+                    </div>
+                    <div class="quiz">
+                        <img src="assets/img/umb.jpeg" alt="">
+                        <figcaption>Teste</figcaption>
+                    </div>
+                    <div class="quiz">
+                        <img src="assets/img/umb.jpeg" alt="">
+                        <figcaption>Teste</figcaption>
+                    </div>
+                    <div class="quiz">
+                        <img src="assets/img/umb.jpeg" alt="">
+                        <figcaption>Teste</figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--FIM DA PRIMIRA PÁGINA (EVE)-->
+
         <!-- Início das telas de criação do quiz. (guil)-->
-        <section class="quiz-creation">
+        <section class="quiz-creation hidden">
             <h2>
                 Comece pelo começo
             </h2>
@@ -35,6 +107,8 @@
             <button>Prosseguir para criar perguntas</button>
         </section>
     </main>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="assets/js/script.js"></script>
