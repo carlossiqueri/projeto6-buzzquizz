@@ -1,9 +1,3 @@
-let quizObject = {
-    title: "",
-    image: "",
-    questions: [],
-    levels: []
-}
 
 let i;
 let quizzesArray = []
@@ -51,7 +45,6 @@ function getQuizzesSucess(element) {
 function getUserQuizzesSucess() {
 
     let localQuizzes = JSON.parse(localStorage.getItem('my-quizzes-list'))
-
 
     if(localQuizzes != null && localQuizzes.length > 0) {
         let userQuizzes = document.querySelector('.my-quizzes-list')
