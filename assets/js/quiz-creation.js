@@ -61,3 +61,35 @@ function proceedToQuestionsOrAlert() {
         proceedToQuestions();
     }
 }
+
+function enlargeToEditQuestionOne(object) {
+    document.querySelectorAll(".larger-to-edit")[1].classList.add("vanish");
+    document.querySelectorAll(".larger-to-edit")[2].classList.add("vanish");
+    document.querySelector(".quizz-questions div:nth-of-type(3)").classList.remove("vanish");
+    document.querySelector(".quizz-questions div:nth-of-type(5)").classList.remove("vanish");
+
+    object.classList.add("vanish");
+    document.querySelector(".box-question-one").classList.remove("vanish");
+}
+
+function enlargeToEditQuestionTwo(object) {
+    document.querySelectorAll(".larger-to-edit")[0].classList.add("vanish");
+    document.querySelectorAll(".larger-to-edit")[2].classList.add("vanish");
+    document.querySelector(".quizz-questions div:nth-of-type(1)").classList.remove("vanish");
+    document.querySelector(".quizz-questions div:nth-of-type(5)").classList.remove("vanish");
+
+    object.classList.add("vanish");
+    document.querySelector(".box-question-two").classList.remove("vanish");
+}
+
+function enlargeToEditQuestionThree(object) {
+    document.querySelectorAll(".larger-to-edit")[0].classList.add("vanish");
+    document.querySelectorAll(".larger-to-edit")[1].classList.add("vanish");
+    document.querySelector(".quizz-questions div:nth-of-type(1)").classList.remove("vanish");
+    document.querySelector(".quizz-questions div:nth-of-type(3)").classList.remove("vanish");
+
+    object.classList.add("vanish");
+    document.querySelector(".box-question-three").classList.remove("vanish");
+}
+
+
