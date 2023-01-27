@@ -11,11 +11,12 @@
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="imagem/png" href="/assets/img/buzzfeed.png" />
     <title>BuzzQuizz</title>
 </head>
 
 <body>
-    <header>
+    <header onclick="goToFirstPage()">
         <h1>BuzzQuizz</h1>
         <!-- Coloquei o header com position fixed, considerar 69px de margem top nos divs abaixo. (guil)-->
     </header>
@@ -23,7 +24,7 @@
 
         <!--INCIO PRIMEIRA TELA (EVE)-->
         <div class="first-page">
-            <div class="menu-quiz ">
+            <div class="menu-quiz hidden">
                 <div class="menu-body">
                     <div class="menu-text">
                         <p>Você não criou nenhum quizz ainda :(</p>
@@ -33,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="my-quizzes hidden">
+            <div class="my-quizzes">
                 <div class="title-my-quizzes">
                     <p>Seus Quizzes</p>
                     <ion-icon name="add-circle"></ion-icon>
@@ -70,6 +71,101 @@
 
         <!--FIM DA PRIMIRA PÁGINA (EVE)-->
 
+        <!--INICIO DA CRIAÇÃO DA SEGUNDA TELA (QUIZZ ANSWERS) (CARLOS)-->
+        <section class="quizzPage hidden">
+            <div class="quizzBanner">
+                <img src="./assets/img/Rectangle 42.png" alt="">
+                <h3>Qual é a comida mais famosa?</h3>
+            </div>
+
+            <div class="quizzAnswers">
+                <div>
+                    <h4>Qual é a comida mais famosa?</h4>
+                </div>
+                <div class="containerQuizzes">
+                    <div>
+                        <img src="./assets/img/brownie.jpeg" alt="" class="choosenAnswer">
+                        <p>brownie</p>
+                    </div>
+                    <div>
+                        <img src="./assets/img/carbonara.jpeg" alt="" class="choosenAnswer">
+                        <p>carbonara</p>
+                    </div>
+                    <div>
+                        <img src="./assets/img/bife-a-milanesa.jpeg" alt="">
+                        <p>bife a milanesa</p>
+                    </div>
+                    <div>
+                        <img src="./assets/img/a-la-minuta.jpeg" alt="" class="choosenAnswer">
+                        <p>a la minuta</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quizzAnswers">
+                <div>
+                    <h4>Qual é a comida mais famosa?</h4>
+                </div>
+                <div class="containerQuizzes">
+                    <div>
+                        <img src="./assets/img/brownie.jpeg" alt="">
+                        <p>brownie</p>
+                    </div>
+                    <div>
+                        <img src="./assets/img/carbonara.jpeg" alt="" class="choosenAnswer">
+                        <p>carbonara</p>
+                    </div>
+                    <div>
+                        <img src="./assets/img/bife-a-milanesa.jpeg" alt="" class="choosenAnswer">
+                        <p>bife a milanesa</p>
+                    </div>
+                    <div>
+                        <img src="./assets/img/a-la-minuta.jpeg" alt="" class="choosenAnswer">
+                        <p>a la minuta</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quizzAnswers">
+                <div>
+                    <h4>Qual é a comida mais famosa?</h4>
+                </div>
+                <div class="containerQuizzes">
+                    <div>
+                        <img src="./assets/img/brownie.jpeg" alt="" class="choosenAnswer">
+                        <p>bxcxbbxcv</p>
+                    </div>
+                    <div>
+                        <img src="./assets/img/carbonara.jpeg" alt="" class="choosenAnswer">
+                        <p>zxczc</p>
+                    </div>
+                    <div>
+                        <img src="./assets/img/bife-a-milanesa.jpeg" alt="" class="choosenAnswer">
+                        <p>bife a asdasdsada</p>
+                    </div>
+                    <div>
+                        <img src="./assets/img/a-la-minuta.jpeg" alt="">
+                        <p>asdsdsad</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="containerLevels">
+                <div class="levelTitle">
+                    <h5>88% de acerto: Você é praticamente um aluno de Hogwarts!</h5>
+                </div>
+                <div class="levelDescription">
+                    <img src="./assets/img/brownie.jpeg" alt="">
+                    <p>Parabéns Potterhead! Bem-vindx a Hogwarts, aproveite o loop infinito de comida e clique no botão
+                        abaixo para usar o vira-tempo e reiniciar este teste.</p>
+                </div>
+            </div>
+
+            <button class="restart">Reiniciar Quizz</button>
+            <a href="#" class="home">Voltar pra Home</a>
+        </section>
+        <!--FIM DA CRIAÇÃO DA SEGUNDA TELA (QUIZZ ANSWERS) (CARLOS)-->
+
         <!-- Início das telas de criação do quiz. (guil)-->
 
         <!-- Início da primeira tela. (guil)-->
@@ -90,7 +186,7 @@
         <!-- Fim da primeira tela. (guil)-->
 
         <!-- Início da segunda tela. (guil)-->
-        <section class="quizz-creation questions">
+        <section class="quizz-creation questions hidden">
             <h2>
                 Crie suas perguntas
             </h2>
@@ -160,6 +256,7 @@
         <!-- fim da segunda tela. (guil)-->
 
         <!-- Fim das telas de criação do quiz. (guil)-->
+
     </main>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
