@@ -91,11 +91,7 @@ input[type=text]::placeholder {
 
 /*BOTAO CRICAÇÃO DE QUIZ TELA INICIAL*/
 
-.first-page.hidden {
-    display: none;
-}
-
-.menu-quiz.hidden {
+.first-page.hidden, .menu-quiz.hidden, .my-quizzes.hidden {
     display: none;
 }
 
@@ -139,10 +135,6 @@ input[type=text]::placeholder {
 
 /*MEUS QUIZZES (EVE)*/
 
-.my-quizzes.hidden {
-    display: none;
-}
-
 .my-quizzes {
     margin: auto;
     width: 1051px;
@@ -162,28 +154,19 @@ input[type=text]::placeholder {
     margin-left: 15px;
 }
 
-.my-quizzes-all {
-    display: flex;
-    width: 1051px;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 12px;
-}
-
-
-.my-quiz {
+.my-quiz, .quiz {
     position: relative;
     margin-bottom: 12px;
+    cursor: pointer;
 }
 
-.my-quiz img {
+.my-quiz img, .quiz img  {
     width: 340px;
     height: 181px;
     border-radius: 5px;
-
 }
 
-.my-quiz figcaption {
+.my-quiz figcaption, .quiz figcaption  {
     width: 340px;
     height: 51px;
     position: absolute;
@@ -207,39 +190,12 @@ input[type=text]::placeholder {
     font-size: 20px;
 }
 
-
-.all-quizzes {
+.all-quizzes, .my-quizzes-all{
     display: flex;
     width: 1051px;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 12px;
-}
-
-.quiz {
-    position: relative;
-    margin-bottom: 12px;
-    cursor: pointer;
-}
-
-.quiz img {
-    width: 340px;
-    height: 181px;
-    border-radius: 5px;
-
-}
-
-.quiz figcaption {
-    width: 340px;
-    height: 51px;
-    position: absolute;
-    top: 130px;
-    font-weight: 400;
-    font-size: 19px;
-    color: #FFFFFF;
-    text-align: center;
-    border-radius: 5px;
-    background-image: linear-gradient(to top , black, transparent);
 }
 
 @media screen and (max-width: 375px) {
