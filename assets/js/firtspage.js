@@ -32,7 +32,7 @@ function getQuizzesSucess(element) {
     for (i = 49; i >= 0; i = i - 1) {
         quizzesArray.unshift(element.data[i])
         const showQuizList = `
-        <div class="quiz" id="${element.id}" onclick="goToQuiz(this)">
+        <div class="quiz" id="${element.data[i].id}" onclick="goToQuiz(this)">
             <img src=${element.data[i].image}>
             <figcaption>${element.data[i].title}</figcaption>
         </div>`
@@ -54,13 +54,19 @@ function getUserQuizzesSucess() {
         if(!localQuizzes) return 
         localQuizzes.forEach(element => {
             userQuizzes.innerHTML += `
-            <div class="my-quiz" onclick="goToMyQuiz(this)">
+            <div class="my-quiz" id="${element.data[i].id}" onclick="goToMyQuiz(this)">
                 <img src=${element.data[i].image}>
                 <figcaption>${element.data[i].title}</figcaption>
             </div>`
         })
     }
 
+}
+
+function goToQuiz(elementId) {
+    const elementIdQuiz = elementId.getAttribute('id');
+    
+    return console.log(elementIdQuiz)
 }
 
 
