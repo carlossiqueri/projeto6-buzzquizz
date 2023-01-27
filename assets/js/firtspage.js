@@ -63,11 +63,4 @@ function getUserQuizzesSucess() {
 
 }
 
-function goToQuiz(elementId) {
-    const elementIdQuiz = elementId.getAttribute('id');
-    
-    return console.log(elementIdQuiz)
-}
-
-
 getQuizzes()
