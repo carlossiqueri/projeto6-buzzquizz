@@ -15,6 +15,7 @@ header {
     justify-content: center;
     position: fixed;
     top: 0;
+    z-index: 2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -45,4 +46,154 @@ h2 {
     width: 600px;
     display: flex;
     flex-direction: column;
+}
+
+/* estilização relativa ao exemplo de tela2*/
+.quizzPage{
+    background-color: #E5E5E5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.quizzBanner {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.quizzBanner img {
+    width: 100%;
+    height: 220px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.quizzBanner h3 {
+    color: #FFFFFF;
+    position: absolute;
+    z-index: 2;
+    font-weight: 400;
+    font-size: 39px;
+}
+
+.quizzAnswers {
+    background-color: #FFFFFF;
+    width: 759px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 42px;
+}
+
+.quizzAnswers h4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #434CA0;
+    margin: 27px auto 18px auto;
+    width: 688px;
+    height: 138px;
+    font-size: 23px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+.containerQuizzes {
+    width: 688px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.containerQuizzes img{
+    width: 330px;
+    height: 175px;
+}
+
+.containerQuizzes p {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.choosenAnswer {
+    opacity: 0.3;
+}
+
+.containerLevels {
+    margin-top: 45px;
+    background-color: #FFFFFF;
+    width: 759px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 57px;
+}
+
+.levelTitle {
+    background-color: #EC362D;
+    width: 727px;
+    height: 99px;
+    font-size: 23px;
+    font-weight: 700;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 18px auto;
+}
+
+.levelDescription {
+    width: 727px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.levelDescription img {
+    width: 364px;
+}
+
+.levelDescription p {
+    color: #484848;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 25px;
+    margin-left: 20px;
+}
+
+.restart {
+    width: 260px;
+    height: 52px;
+    background-color: #EC362D;
+    border-radius: 20px;
+    color: #FFF5F4;
+    border: none;
+    margin-bottom: 16px;
+    font-size: 21px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.restart:hover {
+    transition: 0.5s;
+    background-color:  coral;
+}
+
+.home {
+    text-decoration: none;
+    font-size: 21px;
+    font-weight: 400;
+    color: #818181;
+    margin-bottom: 85px;
+}
+
+.home:hover {
+    transition: 0.2s;
+    font-size: 25px;
 }
