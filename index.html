@@ -11,31 +11,68 @@
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="imagem/png" href="/assets/img/buzzfeed.png" />
     <title>BuzzQuizz</title>
 </head>
 
 <body>
-    <header>
+    <header onclick="goToFirstPage()">
         <h1>BuzzQuizz</h1>
         <!-- Coloquei o header com position fixed, considerar 69px de margem top nos divs abaixo. (guil)-->
     </header>
     <main>
 
-        <!-- Início das telas de criação do quiz. (guil)-->
-        <section class="quiz-creation">
-            <h2>
-                Comece pelo começo
-            </h2>
-            <div class="quiz-basic-info">
-                <input type="text" name="" id="">
-                <input type="text" name="" id="">
-                <input type="text" name="" id="">
-                <input type="text" name="" id="">
+        <!--INCIO PRIMEIRA TELA (EVE)-->
+        <div class="first-page">
+            <div class="menu-quiz hidden">
+                <div class="menu-body">
+                    <div class="menu-text">
+                        <p>Você não criou nenhum quizz ainda :(</p>
+                    </div>
+                    <div class="menu-button">
+                        <button onclick="pageCreateQuiz()">Criar Quizz</button>
+                    </div>
+                </div>
             </div>
-            <button>Prosseguir para criar perguntas</button>
-        </section>
+            <div class="my-quizzes">
+                <div class="title-my-quizzes">
+                    <p>Seus Quizzes</p>
+                    <ion-icon name="add-circle"></ion-icon>
+                </div>
+                <div class="my-quizzes-all">
+                    <div class="my-quizzes-list">
+                        <div class="my-quiz">
+                            <img src="assets/img/umb.jpeg" alt="">
+                            <figcaption>Teste</figcaption>
+                        </div>
+                    </div>
+                    <div class="my-quizzes-list">
+                        <div class="my-quiz">
+                            <img src="assets/img/umb.jpeg" alt="">
+                            <figcaption>Teste</figcaption>
+                        </div>
+                    </div>
+                    <div class="my-quizzes-list">
+                        <div class="my-quiz">
+                            <img src="assets/img/umb.jpeg" alt="">
+                            <figcaption>Teste</figcaption>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <section class="quizzPage">
+            <div class="quiz-list">
+                <p>Todos os Quizzes</p>
+                <div class="all-quizzes">
+
+                </div>
+            </div>
+        </div>
+
+        <!--FIM DA PRIMIRA PÁGINA (EVE)-->
+
+        <!--INICIO DA CRIAÇÃO DA SEGUNDA TELA (QUIZZ ANSWERS) (CARLOS)-->
+        <section class="quizzPage hidden">
             <div class="quizzBanner">
                 <img src="./assets/img/Rectangle 42.png" alt="">
                 <h3>Qual é a comida mais famosa?</h3>
@@ -126,10 +163,30 @@
             <button class="restart">Reiniciar Quizz</button>
             <a href="#" class="home">Voltar pra Home</a>
         </section>
+        <!--FIM DA CRIAÇÃO DA SEGUNDA TELA (QUIZZ ANSWERS) (CARLOS)-->
+
+        <!-- Início das telas de criação do quiz. (guil)-->
+        <section class="quizz-creation hidden">
+            <h2>
+                Comece pelo começo
+            </h2>
+            <div class="quizz-basic-info">
+                <input type="text" placeholder="Título do seu quizz">
+                <input type="url" placeholder="URL da imagem do seu quizz">
+                <input type="text" placeholder="Quantidade de perguntas do quizz">
+                <input type="text" placeholder="Quantidade de níveis do quizz">
+            </div>
+            <button class="create-questions-button" onclick="saveAndGoToQuizzQuestions()">Prosseguir para criar
+                perguntas</button>
+        </section>
+
     </main>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/firtspage.js"></script>
     <script src="assets/js/quiz-creation.js"></script>
 </body>
 
