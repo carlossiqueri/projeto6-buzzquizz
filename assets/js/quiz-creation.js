@@ -131,9 +131,9 @@ function proceedToQuestionsOrAlert() {
 
         alert(
             `O título tem que ter mais do que 20 e menos do que 65;
-A imagem precisa ser um URL válido;
-A quantiddade de perguntas deve ser ao menos 3;
-A quantidade de níveis deve ser ao menos 2.`);
+            A imagem precisa ser um URL válido;
+            A quantiddade de perguntas deve ser ao menos 3;
+            A quantidade de níveis deve ser ao menos 2.`);
     } else {
         proceedToQuestions();
     }

@@ -1,0 +1,28 @@
+@media screen and (max-width: 1100px) {
+
+    header {
+        width: 100vw;
+        z-index: 1;
+    }
+
+    .menu-quiz {
+        width: 340px;
+        margin-top: 100px;
+    }
+
+    .quiz-list {
+        width: 345px;
+    }
+
+    .all-quizzes {
+        width: 345px;
+    }
+
+    .my-quizzes {
+        width: 345px;
+    }
+
+    .my-quizzes-all {
+        width: 345px;
+    }
+}
