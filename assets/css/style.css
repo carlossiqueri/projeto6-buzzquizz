@@ -104,9 +104,8 @@ input::placeholder {
     display: none !important;
 }
 
-.quizz-questions div:nth-child(odd) {
+.small-box-question {
     cursor: pointer;
-    height: 74px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -115,14 +114,7 @@ input::placeholder {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
-.quizz-questions div:nth-child(even) {
-    padding: 27px 19px 27px 17px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
-
-}
-
 .quizz-questions p {
-
     font-weight: 700;
     font-size: 20px;
 }

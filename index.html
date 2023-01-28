@@ -24,7 +24,7 @@
 
         <!--INCIO PRIMEIRA TELA (EVE)-->
         <div class="first-page">
-            <div class="menu-quiz hidden">
+            <div class="menu-quiz">
                 <div class="menu-body">
                     <div class="menu-text">
                         <p>Você não criou nenhum quizz ainda :(</p>
@@ -191,65 +191,8 @@
                 Crie suas perguntas
             </h2>
             <div class="quizz-questions">
-                <div onclick="enlargeToEditQuestionOne(this)">
-                    <p>Pergunta 1</p>
-                    <ion-icon name="create-outline"></ion-icon>
-                </div>
-                <div class="larger-to-edit box-question-one vanish">
-                    <p>Pergunta 1</p>
-                    <input type="text" placeholder="Texto da pergunta">
-                    <input type="text" placeholder="Cor de fundo da pergunta">
-                    <p>Resposta correta</p>
-                    <input type="text" placeholder="Resposta correta">
-                    <input type="url" placeholder="URL da imagem">
-                    <p>Respostas incorretas</p>
-                    <input type="text" placeholder="Resposta incorreta">
-                    <input type="url" placeholder="URL da imagem">
-                    <input type="text" placeholder="Resposta incorreta">
-                    <input type="url" placeholder="URL da imagem">
-                    <input type="text" placeholder="Resposta incorreta">
-                    <input type="url" placeholder="URL da imagem">
-                </div>
-                <div onclick="enlargeToEditQuestionTwo(this)">
-                    <p>Pergunta 2</p>
-                    <ion-icon name="create-outline"></ion-icon>
-                </div>
-                <div class="larger-to-edit box-question-two vanish">
-                    <p>Pergunta 2</p>
-                    <input type="text" placeholder="Texto da pergunta">
-                    <input type="text" placeholder="Cor de fundo da pergunta">
-                    <p>Resposta correta</p>
-                    <input type="text" placeholder="Resposta correta">
-                    <input type="url" placeholder="URL da imagem">
-                    <p>Respostas incorretas</p>
-                    <input type="text" placeholder="Resposta incorreta">
-                    <input type="url" placeholder="URL da imagem">
-                    <input type="text" placeholder="Resposta incorreta">
-                    <input type="url" placeholder="URL da imagem">
-                    <input type="text" placeholder="Resposta incorreta">
-                    <input type="url" placeholder="URL da imagem">
-                </div>
-                <div onclick="enlargeToEditQuestionThree(this)">
-                    <p>Pergunta 3</p>
-                    <ion-icon name="create-outline"></ion-icon>
-                </div>
-                <div class="larger-to-edit box-question-three vanish">
-                    <p>Pergunta 3</p>
-                    <input type="text" placeholder="Texto da pergunta">
-                    <input type="text" placeholder="Cor de fundo da pergunta">
-                    <p>Resposta correta</p>
-                    <input type="text" placeholder="Resposta correta">
-                    <input type="url" placeholder="URL da imagem">
-                    <p>Respostas incorretas</p>
-                    <input type="text" placeholder="Resposta incorreta">
-                    <input type="url" placeholder="URL da imagem">
-                    <input type="text" placeholder="Resposta incorreta">
-                    <input type="url" placeholder="URL da imagem">
-                    <input type="text" placeholder="Resposta incorreta">
-                    <input type="url" placeholder="URL da imagem">
-                </div>
             </div>
-            <button class="create-questions-button" onclick="functionnotimplemeted()">
+            <button class="create-questions-button" onclick="saveAndGoToQuizzLevels()">
                 Prosseguir para criar níveis
             </button>
         </section>
