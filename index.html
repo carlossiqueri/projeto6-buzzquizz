@@ -180,7 +180,7 @@
                 <input type="text" placeholder="Quantidade de perguntas do quizz">
                 <input type="text" placeholder="Quantidade de níveis do quizz">
             </div>
-            <button class="create-questions-button" onclick="saveAndGoToQuizzQuestions()">
+            <button class="quizz-creation-button" onclick="saveAndGoToQuizzQuestions()">
                 Prosseguir para criar perguntas
             </button>
         </section>
@@ -191,13 +191,36 @@
             <h2>
                 Crie suas perguntas
             </h2>
-            <div class="quizz-questions">
-            </div>
-            <button class="create-questions-button" onclick="saveAndGoToQuizzLevels()">
+            <div class="quizz-questions"></div>
+            <button class="quizz-creation-button" onclick="saveAndGoToQuizzLevels()">
                 Prosseguir para criar níveis
             </button>
         </section>
         <!-- fim da segunda tela. (guil)-->
+
+        <!-- Início da terceira tela. (guil)-->
+        <section class="quizz-creation levels hidden">
+            <h2>
+                Agora, decida os níveis
+            </h2>
+            <div class="quizz-levels"></div>
+            <button class="quizz-creation-button" onclick="saveAndGoToFinishQuizz()">
+                Finalizar Quizz
+            </button>
+        </section>
+        <!-- fim da terceira tela. (guil)-->
+        <section class="quizz-creation finish hidden">
+            <h2>
+                Seu quizz está pronto
+            </h2>
+            <div class="quizz-finish"></div>
+            <button class="quizz-creation-button">
+                Acessar Quizz
+            </button>
+            <div class="back-home-button" onclick="goBackHome()">
+                <p>Voltar para Home</p>
+            </div>
+        </section>
 
         <!-- Fim das telas de criação do quiz. (guil)-->
 

@@ -4,53 +4,53 @@ let amountQuizzQuestions;
 let amountQuizzlevels;
 
 let createdQuizz = {
-    title: "Título do quizz",
-    image: "https://http.cat/411.jpg",
+    title: "unassigned",
+    image: "unassigned",
     questions: [
         {
-            title: "Título da pergunta 1",
-            color: "#123456",
+            title: "unassigned",
+            color: "unassigned",
             answers: [
                 {
-                    text: "Texto da resposta 1",
-                    image: "https://http.cat/411.jpg",
+                    text: "unassigned",
+                    image: "unassigned",
                     isCorrectAnswer: true
                 },
                 {
-                    text: "Texto da resposta 2",
-                    image: "https://http.cat/412.jpg",
+                    text: "unassigned",
+                    image: "unassigned",
                     isCorrectAnswer: false
                 }
             ]
         },
         {
-            title: "Título da pergunta 2",
-            color: "#123456",
+            title: "unassigned",
+            color: "unassigned",
             answers: [
                 {
-                    text: "Texto da resposta 1",
-                    image: "https://http.cat/411.jpg",
+                    text: "unassigned",
+                    image: "unassigned",
                     isCorrectAnswer: true
                 },
                 {
-                    text: "Texto da resposta 2",
-                    image: "https://http.cat/412.jpg",
+                    text: "unassigned",
+                    image: "unassigned",
                     isCorrectAnswer: false
                 }
             ]
         },
         {
-            title: "Título da pergunta 3",
-            color: "#123456",
+            title: "unassigned",
+            color: "unassigned",
             answers: [
                 {
-                    text: "Texto da resposta 1",
-                    image: "https://http.cat/411.jpg",
+                    text: "unassigned",
+                    image: "unassigned",
                     isCorrectAnswer: true
                 },
                 {
-                    text: "Texto da resposta 2",
-                    image: "https://http.cat/412.jpg",
+                    text: "unassigned",
+                    image: "unassigned",
                     isCorrectAnswer: false
                 }
             ]
@@ -58,29 +58,29 @@ let createdQuizz = {
     ],
     levels: [
         {
-            title: "Título do nível 1",
-            image: "https://http.cat/411.jpg",
-            text: "Descrição do nível 1",
-            minValue: 0
+            title: "unassigned",
+            image: "unassigned",
+            text: "unassigned",
+            minValue: 999
         },
         {
-            title: "Título do nível 2",
-            image: "https://http.cat/412.jpg",
-            text: "Descrição do nível 2",
-            minValue: 50
+            title: "unassigned",
+            image: "unassigned",
+            text: "unassigned",
+            minValue: 999
         }
     ]
 }
 
 let incorrectQuestionsTwo = {
-    text: "unassigned",
-    image: "unassigned",
+    text: "",
+    image: "",
     isCorrectAnswer: false
 }
 
 let incorrectQuestionsThree = {
-    text: "Texto da resposta incorreta",
-    image: "https://http.cat/412.jpg",
+    text: "",
+    image: "",
     isCorrectAnswer: false
 }
 
@@ -103,8 +103,12 @@ function checkSaveQuizzTitle() {
 }
 
 function checkSaveQuizzImgUrl() {
-    //Falta editar a checagem se é URL. (guil)
-    createdQuizz.image = document.querySelector(".quizz-basic-info input:nth-child(2)").value;
+    const checkForURL = document.querySelector(".quizz-basic-info input:nth-child(2)").value;
+    const isUrl = checkForURL.includes("http", 0);
+
+    if (isUrl) {
+        createdQuizz.image = document.querySelector(".quizz-basic-info input:nth-child(2)").value;
+    }
 }
 
 function checkSaveAmountQuizzQuestions() {
@@ -124,13 +128,14 @@ function checkSaveAmountQuizzLevels() {
 }
 
 function proceedToQuestionsOrAlert() {
-    if (createdQuizz.title == undefined ||
-        createdQuizz.image == undefined ||
+
+    if (createdQuizz.title == "unassigned" ||
+        createdQuizz.image == "unassigned" ||
         amountQuizzQuestions == undefined ||
         amountQuizzlevels == undefined) {
 
         alert(
-            `O título tem que ter mais do que 20 e menos do que 65;
+            `Título com mais de 20 e menos do que 65 caracteres;
             A imagem precisa ser um URL válido;
             A quantiddade de perguntas deve ser ao menos 3;
             A quantidade de níveis deve ser ao menos 2.`);
@@ -146,10 +151,11 @@ function proceedToQuestions() {
 }
 
 function showQuestionBoxes() {
+
     const quizzQuestionBoxes = document.querySelector(".quizz-questions");
     for (let i = 1; i <= amountQuizzQuestions; i++) {
         quizzQuestionBoxes.innerHTML = quizzQuestionBoxes.innerHTML +
-            `<div class="small-box-question" onclick="enlargeToEditQuestion(this)">
+            `<div class="small-box" onclick="enlargeToEdit(this)">
                 <p>Pergunta ${i}</p>
                 <ion-icon name="create-outline"></ion-icon>
                 <div class="larger-to-edit vanish">
@@ -171,7 +177,7 @@ function showQuestionBoxes() {
     }
 }
 
-function enlargeToEditQuestion(object) {
+function enlargeToEdit(object) {
 
     if (document.querySelector("ion-icon.vanish")) {
         document.querySelector("ion-icon.vanish").classList.remove("vanish");
@@ -202,7 +208,7 @@ function saveAndGoToQuizzLevels() {
         checkSaveQuizzThirdIncorrectAnswer(quizzQuestions, i);
         checkSaveQuizzThirdIncorrectAnswerImgUrl(quizzQuestions, i);
     }
-    console.log(createdQuizz);
+    proceedToLevelsOrAlert();
 }
 
 function checkSaveQuizzQuestionText(listOfNodes, counter) {
@@ -210,17 +216,16 @@ function checkSaveQuizzQuestionText(listOfNodes, counter) {
     const minLength = 19;
 
     if (checkLength > minLength) {
-        createdQuizz.questions[counter].title = listOfNodes[counter].querySelector("input:Nth-of-type(1)").value
+        createdQuizz.questions[counter].title = listOfNodes[counter].querySelector("input:Nth-of-type(1)").value;
     }
 }
 
 function checkSaveQuizzQuestionBackGroundColor(listOfNodes, counter) {
-    const checkLength = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(2)").value.length;
-    const theLength = 7;
     const stringColor = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(2)").value;
-    const isColor = stringColor.includes("#", 0);
+    const isColor = /^#[0-9A-F]{6}$/i;
+    isColor.test(stringColor);
 
-    if (theLength === 7 && isColor) {
+    if (isColor) {
         createdQuizz.questions[counter].color = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(2)").value;
     }
 }
@@ -234,9 +239,13 @@ function checkSaveQuizzCorrectAnswer(listOfNodes, counter) {
 }
 
 function checkSaveQuizzCorrectAnswerImgUrl(listOfNodes, counter) {
-    //Falta realizar checagem para verificar se é URL. (guil)
-    createdQuizz.questions[counter].answers[0].image = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(4)").value;
-    createdQuizz.questions[counter].answers[0].isCorrectAnswer = true;
+    const checkForURL = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(4)").value;
+    const isUrl = checkForURL.includes("http", 0);
+
+    if (isUrl) {
+        createdQuizz.questions[counter].answers[0].image = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(4)").value;
+        createdQuizz.questions[counter].answers[0].isCorrectAnswer = true;
+    }
 }
 
 function checkSaveQuizzFirstIncorrectAnswer(listOfNodes, counter) {
@@ -248,9 +257,13 @@ function checkSaveQuizzFirstIncorrectAnswer(listOfNodes, counter) {
 }
 
 function checkSaveQuizzFirstIncorrectAnswerImgUrl(listOfNodes, counter) {
-    //Falta realizar checagem para verificar se é URL. (guil)
-    createdQuizz.questions[counter].answers[1].image = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(6)").value;
-    createdQuizz.questions[counter].answers[1].isCorrectAnswer = false;
+    const checkForURL = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(6)").value;
+    const isUrl = checkForURL.includes("http", 0);
+
+    if (isUrl) {
+        createdQuizz.questions[counter].answers[1].image = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(6)").value;
+        createdQuizz.questions[counter].answers[1].isCorrectAnswer = false;
+    }
 }
 
 function checkSaveQuizzSecondIncorrectAnswer(listOfNodes, counter) {
@@ -262,10 +275,13 @@ function checkSaveQuizzSecondIncorrectAnswer(listOfNodes, counter) {
 }
 
 function checkSaveQuizzSecondIncorrectAnswerImgUrl(listOfNodes, counter) {
-    //Falta realizar checagem para verificar se é URL. (guil)
+    const checkForURL = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(8)").value;
+    const isUrl = checkForURL.includes("http", 0);
 
-    incorrectQuestionsTwo.image = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(8)").value;
-    incorrectQuestionsTwo.isCorrectAnswer = false;
+    if (isUrl) {
+        incorrectQuestionsTwo.image = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(8)").value;
+        incorrectQuestionsTwo.isCorrectAnswer = false;
+    }
 
     if (incorrectQuestionsTwo.text !== "" && incorrectQuestionsTwo.image !== "") {
         createdQuizz.questions[counter].answers.push(incorrectQuestionsTwo);
@@ -281,15 +297,144 @@ function checkSaveQuizzThirdIncorrectAnswer(listOfNodes, counter) {
 }
 
 function checkSaveQuizzThirdIncorrectAnswerImgUrl(listOfNodes, counter) {
-    //Falta realizar checagem para verificar se é URL. (guil)
+    const checkForURL = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(10)").value;
+    const isUrl = checkForURL.includes("http", 0);
 
-    incorrectQuestionsThree.image = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(10)").value;
-    incorrectQuestionsThree.isCorrectAnswer = false;
+    if (isUrl) {
+        incorrectQuestionsThree.image = listOfNodes[counter].querySelector(".larger-to-edit input:Nth-of-type(10)").value;
+        incorrectQuestionsThree.isCorrectAnswer = false;
+    }
 
     if (incorrectQuestionsThree.text !== "" && incorrectQuestionsThree.image !== "") {
         createdQuizz.questions[counter].answers.push(incorrectQuestionsThree);
     }
 }
+
+function proceedToLevelsOrAlert() {
+
+    if (false) {
+        alert("Começa tudo mais uma vez")
+
+    } else {
+
+        document.querySelector(".quizz-creation.questions").classList.add("hidden");
+        document.querySelector(".quizz-creation.levels").classList.remove("hidden");
+        showLevelBoxes();
+
+    }
+}
+
+function showLevelBoxes() {
+    const quizzLevelBoxes = document.querySelector(".quizz-levels");
+
+    for (let i = 1; i <= amountQuizzlevels; i++) {
+        quizzLevelBoxes.innerHTML = quizzLevelBoxes.innerHTML +
+            `<div class="small-box levels" onclick="enlargeToEdit(this)">
+                <p>Níveis ${i}</p>
+                <ion-icon name="create-outline"></ion-icon>
+                <div class="larger-to-edit levels vanish">
+                    <p>Níveis ${i}</p>
+                    <input type="text" placeholder="Título do nível">
+                    <input type="text" placeholder="% de acerto mínima">
+                    <input type="url" placeholder="URL da imagem do nível">
+                    <input type="text" placeholder="Descrição do nível">
+                </div>
+            </div>`
+    }
+}
+
+function saveAndGoToFinishQuizz() {
+
+    for (let i = 0; i < amountQuizzlevels; i++) {
+
+        const quizzLevels = document.querySelectorAll(".larger-to-edit.levels");
+
+        checkSaveQuizzLevelsTitle(quizzLevels, i);
+        checkSaveQuizzLevelsMinValue(quizzLevels, i);
+        checkSaveQuizzLevelsImgUrl(quizzLevels, i);
+        checkSaveQuizzLevelsText(quizzLevels, i);
+    }
+    console.log(createdQuizz);
+    proceedToSaveQuizzOrAlert();
+}
+
+function checkSaveQuizzLevelsTitle(listOfNodes, counter) {
+    const checkLength = listOfNodes[counter].querySelector("input:Nth-of-type(1)").value.length;
+    const minLength = 9;
+
+    if (checkLength > minLength) {
+        createdQuizz.levels[counter].title = listOfNodes[counter].querySelector("input:Nth-of-type(1)").value;
+    }
+}
+
+function checkSaveQuizzLevelsMinValue(listOfNodes, counter) {
+
+    const isInRange = listOfNodes[counter].querySelector("input:Nth-of-type(2)").value;
+
+    if (isInRange >= 0 && isInRange <= 100) {
+        createdQuizz.levels[counter].minValue = listOfNodes[counter].querySelector("input:Nth-of-type(2)").value;
+    }
+}
+
+function checkSaveQuizzLevelsImgUrl(listOfNodes, counter) {
+    const checkForURL = listOfNodes[counter].querySelector("input:Nth-of-type(3)").value;
+    const isUrl = checkForURL.includes("http", 0);
+
+    if (isUrl) {
+        createdQuizz.levels[counter].image = listOfNodes[counter].querySelector("input:Nth-of-type(3)").value;
+    }
+}
+
+function checkSaveQuizzLevelsText(listOfNodes, counter) {
+    const checkLength = listOfNodes[counter].querySelector("input:Nth-of-type(4)").value.length;
+    const minLength = 29;
+
+    if (checkLength > minLength) {
+        createdQuizz.levels[counter].text = listOfNodes[counter].querySelector("input:Nth-of-type(4)").value;
+    }
+}
+
+function proceedToSaveQuizzOrAlert() {
+
+    if (false) {
+        alert("Começa tudo mais uma vez...")
+    }
+    saveCreatedQUizz();
+}
+
+function saveCreatedQUizz() {
+    const promise = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes", createdQuizz);
+    promise.then(createdQuizzIsSafe);
+    promise.catch(createdQuizzIsNotSafe);
+
+}
+
+function createdQuizzIsSafe(response) {
+    console.log(response);
+
+    proceedToFinishedQuizz()
+}
+
+function createdQuizzIsNotSafe(response) {
+    console.log(response);
+
+    alert("Falha ao salvar o seu Quizz algum dado dele não corresponde com o requisitado");
+    window.location.reload();
+
+}
+
+function proceedToFinishedQuizz() {
+    document.querySelector(".quizz-creation.levels").classList.add("hidden");
+    document.querySelector(".quizz-creation.finish").classList.remove("hidden");
+}
+
+function goBackHome() {
+    document.querySelector(".quizz-creation.finish").classList.add("hidden");
+    document.querySelector(".first-page").classList.remove("hidden");
+}
+
+
+
 
 
 

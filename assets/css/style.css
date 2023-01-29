@@ -81,7 +81,7 @@ input::placeholder {
     font-style: italic;
 }
 
-.create-questions-button {
+.quizz-creation-button {
     cursor: pointer;
     width: 367px;
     height: 54px;
@@ -93,9 +93,8 @@ input::placeholder {
     color: #FFF5F4;
 }
 
-/* Fim dos estilos dos objetos da tela basic-info dos quizzes (guil) */
-
-.quizz-questions {
+.quizz-questions,
+.quizz-levels {
     width: 600px;
     margin: 36px auto 81px;
 }
@@ -104,7 +103,7 @@ input::placeholder {
     display: none !important;
 }
 
-.small-box-question {
+.small-box {
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -114,12 +113,14 @@ input::placeholder {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
-.quizz-questions p {
+.quizz-questions p,
+.quizz-levels p {
     font-weight: 700;
     font-size: 20px;
 }
 
-.quizz-questions ion-icon {
+.quizz-questions ion-icon,
+.quizz-levels ion-icon {
     font-size: 32px;
 }
 
@@ -138,6 +139,26 @@ input::placeholder {
 .larger-to-edit input:nth-of-type(6),
 .larger-to-edit input:nth-of-type(8) {
     margin-bottom: 32px;
+}
+
+.quizz-finish {
+    margin: 36px auto 81px;
+}
+
+.back-home-button {
+    cursor: pointer;
+    margin: 20px auto 100px;
+}
+
+.back-home-button p:hover {
+    transition: 0.2s;
+    font-size: 25px;
+}
+
+.back-home-button p {
+    color: #818181;
+    font-weight: 400;
+    font-size: 21px;
 }
 
 /* Fim dos estilos dos objetos da tela de criação dos quizzes (guil) */
