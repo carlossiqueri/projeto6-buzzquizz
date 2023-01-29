@@ -1,66 +1,71 @@
-
-let i;
-let quizzesArray = []
 let firstPage = document.querySelector('.first-page')
 let quizCreation = document.querySelector('.quizz-creation')
-let myQuizzes = document.querySelector('.my-quizzes')
-let menuQuiz = document.querySelector('.menu-quiz')
+let testQuizz;
+let Quizz;
 
-//FUNÇÃO IR PARA PAGINA DE CRIAÇÃO DE QUIZ
 function pageCreateQuiz() {
     firstPage.classList.add('hidden');
     quizCreation.classList.remove('hidden')
 }
 
-//FUNÇÃO TRAZER QUIZZES DO SERVIDOR
-function getQuizzes() {
-    const promisse = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes')
-    promisse.then(getQuizzesSucess)
-
-    promisse.catch(() => {
-        alert("Algo inesperado aconteceu, a pagina sera reiniciada")
-        window.location.reload(true)
+function getQuizzes(){
+    axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes')
+    .then(quizzes => {
+        testQuizz = quizzes.data
+        renderUserQuizzes(quizzes.data)
+        renderQuizzes(quizzes.data)
     })
 
+    promisse.catch(() => {
+        alert("Algo inesperado aconteceu, a página será reiniciada")
+        window.location.reload(true)
+    })
 }
 
-// FUNÇÃO DE PEGAR QUIZZES E MOSTRAR NA TELA
-function getQuizzesSucess(element) {
-    const showQuiz = document.querySelector('.all-quizzes')
-    showQuiz.innerHTML = '';
+function showMyQuizzes() {
+    let hideMenu = document.querySelector('.menu-quiz')
+    let showMuq = document.querySelector('.my-quizzes')
 
-    for (i = 49; i >= 0; i = i - 1) {
-        quizzesArray.unshift(element.data[i])
-        const showQuizList = `
-        <div class="quiz" id="${element.data[i].id}" onclick="goToQuiz(this)">
-            <img src=${element.data[i].image}>
-            <figcaption>${element.data[i].title}</figcaption>
-        </div>`
-
-        showQuiz.innerHTML += showQuizList
-    }
+    hideMenu.classList.add('hidden')
+    showMuq.classList.remove('hidden')
 }
 
-//FUNÇÃO TESTE PARA CAPTURAR 'SEUS QUIZZES'
-function getUserQuizzesSucess() {
-
-    let localQuizzes = JSON.parse(localStorage.getItem('my-quizzes-list'))
-
-    if(localQuizzes != null && localQuizzes.length > 0) {
-        let userQuizzes = document.querySelector('.my-quizzes-list')
-        menuQuiz.classList.add('hidden')
-        myQuizzes.classList.remove('hidden')
-
-        if(!localQuizzes) return 
-        localQuizzes.forEach(element => {
-            userQuizzes.innerHTML += `
-            <div class="my-quiz" id="${element.data[i].id}" onclick="goToMyQuiz(this)">
-                <img src=${element.data[i].image}>
-                <figcaption>${element.data[i].title}</figcaption>
-            </div>`
+//Renderiza quizzes do usuário
+function renderUserQuizzes(){
+    
+    //Resgata objetos salvos em localstorage em formato de string e transforma em JSON
+    let localQuizzes = JSON.parse(localStorage.getItem('my-quizzes'))
+    if(localQuizzes != null && localQuizzes.length > 0){
+        //Resgata div que contém os quizzes criados pelo usuário
+        showMyQuizzes()
+        let userQuizzesDiv = document.querySelector('.my-quizzes-all .my-quizzes-list')
+        //Percorre cada objeto-quizz do localStorage
+        if(!localQuizzes) return
+        localQuizzes.forEach(quiz => {
+            userQuizzesDiv.innerHTML += `
+            <div class="my-quiz" id="${quiz.id}" onclick="goToQuiz(this)">
+                <img src=${quiz.image}>
+                <figcaption>${quiz.title}</figcaption>
+            </div>
+            `
         })
+        
     }
+    
+}
 
+function renderQuizzes(quizzes){
+    Quizz = quizzes
+    //Resgata div que contém todos os quizes
+    let allQuizzes = document.querySelector('.all-quizzes')
+    quizzes.forEach(quiz => {
+        allQuizzes.innerHTML += `
+        <div class="quiz" id="${quiz.id}" onclick="goToQuiz(this)">
+            <img src=${quiz.image}>
+            <figcaption>${quiz.title}</figcaption>
+        </div>
+        `
+    });
 }
 
 getQuizzes()
