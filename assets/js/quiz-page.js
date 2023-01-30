@@ -1,6 +1,8 @@
 let arrayRespostas = [];
 let retorna;
 let contador = 0;
+let acertos = 0;
+
 
 function refresh() {
     window.location.reload()
@@ -14,6 +16,8 @@ function compare() {
 function goToQuiz(quizz) {
     renderQuizzPage();    
     renderQuizz();
+    selectUserQuizz();
+    selectQuizz();
 }
 
 function renderQuizzPage(){
@@ -22,13 +26,11 @@ function renderQuizzPage(){
     quizzPage.classList.remove('hidden');
     quizzPage.innerHTML = "";
     
-    
 }
 
 function renderQuizz() {
     let banner = document.querySelector('.quizzBanner');
     let respostas = document.querySelector('.quizzAnswers');
-    respostas.innerHTML = '';
    
 
     banner.innerHTML = 
@@ -44,25 +46,26 @@ function renderQuizz() {
         `
         <div class="quizzAnswers">
         <div>
-            <h4>Qual é a comida mais famosa?</h4>
+            <h4>${quizz.tittle}</h4>
         </div>
         <div class="containerQuizzes">
-            <div>
-                <img src="./assets/img/brownie.jpeg" alt="" class="choosenAnswer">
-                <p>bxcxbbxcv</p>
+            <div onclick="selectedAnswer(this)">
+                <img src="${quizz.image}">
+                <p>${quizz.text}</p>
             </div>
-            <div>
-                <img src="./assets/img/carbonara.jpeg" alt="" class="choosenAnswer">
-                <p>zxczc</p>
+            <div onclick="selectedAnswer(this)">
+                <img src="${quizz.image}" alt="">
+                <p>${quizz.text}</p>
             </div>
-            <div>
-                <img src="./assets/img/bife-a-milanesa.jpeg" alt="" class="choosenAnswer">
-                <p>bife a asdasdsada</p>
+            <div onclick="selectedAnswer(this)">
+                <img src="${quizz.image}" alt="">
+                <p>${quizz.text}</p>
             </div>
-            <div>
-                <img src="./assets/img/a-la-minuta.jpeg" alt="">
-                <p>asdsdsad</p>
+            <div onclick="selectedAnswer(this)">
+                <img src="${quizz.image}" alt="">
+                <p>${quizz.text}</p>
         `
+        arrayRespostas.push(respostas);
     }
 }
 
@@ -107,23 +110,30 @@ function selectQuizz(element){
     }
 }
 
-function increaseCont (){
+function selectedAnswer(answer){
+    contador++;
+    console.log('clicou');
+    choosenAnswer();
+
+}
+
+function increaseAcertos (){
     if(respostaClicada === respostaCerta){
-        contador++;
+        acertos++;
     }
 }
 
 function choosenAnswer(){
     // desenvolvendo uma lógica que percorra o array das respostas e identifique se a resposta esta correta ou não
     for(let i = 0; i<arrayRespostas.length; i++){
-        if(resposta[i] !== respostaClicada){
+        if(resposta[i] !== answer){
             resposta.classList.add('choosenAnswer'); // add opacidade
         }
     }
-    scrollAnswers(){
+    /* function scrollAnswers(){
         respostas.scrollIntoView();
     }
-    setTimeout(scrollAnswers, 2000);
+    setTimeout(scrollAnswers, 2000); */
 }
 
 function checkAnswer (){
