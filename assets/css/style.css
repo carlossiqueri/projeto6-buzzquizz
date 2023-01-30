@@ -435,4 +435,11 @@ input::placeholder {
     font-size: 25px;
 }
 
+.respostaCerta {
+    color: #009C22;
+}
+
+.respostaErrada {
+    color: #FF4B4B;
+}
 /* FIM DA CRIAÇÃO DA SEGUNDA TELA (POR ENQUANTO*/
