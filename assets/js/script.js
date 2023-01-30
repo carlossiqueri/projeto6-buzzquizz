@@ -1,10 +1,11 @@
+
 let mockQuizz = {
     title: "Título do quizz",
     image: "https://http.cat/411.jpg",
     questions: [
         {
             title: "Título da pergunta 1",
-            color: "#123456",
+            color: "#212121",
             answers: [
                 {
                     text: "Texto da resposta 1",
@@ -12,8 +13,8 @@ let mockQuizz = {
                     isCorrectAnswer: true
                 },
                 {
-                    text: "Texto da resposta 2",
-                    image: "https://http.cat/412.jpg",
+                    text: "Texto resposta 2",
+                    image: "unassigned",
                     isCorrectAnswer: false
                 }
             ]
@@ -67,16 +68,21 @@ let mockQuizz = {
     ]
 }
 
-function checkIfQUestionsAreCorrect() {
-    mockQuizz.questions.find(findUnassigned);
-    function findUnassigned() {
-        let x = 0
-        if (mockQuizz.questions === "unassigned" ||
-            mockQuizz.questions === "unassigned") {
-            x = 1;
-        }
-        console.log(x);
-    }
+function saveCreatedQUizz() {
+    const promise = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes", mockQuizz);
+    promise.then(createdQuizzIsSafe);
+
 }
 
-checkIfQUestionsAreCorrect();
+function createdQuizzIsSafe(response) {
+
+    console.log(response);
+    console.log(response.data.id);
+}
+
+saveCreatedQUizz();
+
+
+
+
+

@@ -1,7 +1,11 @@
-//Variaveis para formar o objeto do quizz
 
 let amountQuizzQuestions;
 let amountQuizzlevels;
+
+let quizzQuestionsAreRight;
+let quizzLevelsAreRight;
+
+let createdQuizzId;
 
 let createdQuizz = {
     title: "unassigned",
@@ -135,10 +139,11 @@ function proceedToQuestionsOrAlert() {
         amountQuizzlevels == undefined) {
 
         alert(
-            `Título com mais de 20 e menos do que 65 caracteres;
-            A imagem precisa ser um URL válido;
-            A quantiddade de perguntas deve ser ao menos 3;
-            A quantidade de níveis deve ser ao menos 2.`);
+            `Uma ou mais informações adicionadas não está correta.
+            -Título com mais de 20 e menos do que 65 caracteres;
+            -A imagem precisa ser um URL válido;
+            -A quantiddade de perguntas deve ser ao menos 3;
+            -A quantidade de níveis deve ser ao menos 2.`);
     } else {
         proceedToQuestions();
     }
@@ -173,7 +178,7 @@ function showQuestionBoxes() {
                     <input type="text" placeholder="Resposta incorreta">
                     <input type="url" placeholder="URL da imagem">
                 </div>
-            </div>`
+            </div>`;
     }
 }
 
@@ -312,31 +317,50 @@ function checkSaveQuizzThirdIncorrectAnswerImgUrl(listOfNodes, counter) {
 
 function proceedToLevelsOrAlert() {
 
-    checkIfQUestionsAreCorrect()
+    checkIfQUestionsAreCorrect();
 
-    if (false) {
-        alert("Começa tudo mais uma vez")
-
-    } else {
+    if (quizzQuestionsAreRight) {
 
         document.querySelector(".quizz-creation.questions").classList.add("hidden");
         document.querySelector(".quizz-creation.levels").classList.remove("hidden");
         showLevelBoxes();
 
+    } else {
+        alert(`Uma ou mais informações adicionadas não estão corretas.
+                -Texto das perguntas deve conter ao menos 20 caracteres;
+                -Cor de fundo: deve ser uma cor em hexadecimal
+                (começar em "#", seguida de 6 caracteres hexadecimais,
+                ou seja, números ou letras de A a F);
+                -Textos das respostas: não pode estar vazio;
+                -Imagens de resposta: deve ter formato de URL;
+                -É obrigatória a inserção da resposta correta e de
+                pelo menos 1 resposta errada. Portanto,
+                é permitido existirem perguntas com só 2 ou 3 respostas
+                 em vez de 4.`);
     }
 }
 
-/*
-Parei aqui funcão para verificar cada etapa, questions e níveis
 function checkIfQUestionsAreCorrect() {
-    createdQuizz.questions.find(findUnassigned);
-    function findUnassigned () {
-        if (createdQuizz.questions.title === "unassigned" ||
-            createdQuizz.questions.color === "unassigned") {
-            }
+    const checkQuestions = createdQuizz.questions.find(findUnassigned);
+    let checkAnswers;
+    for (let i = 0; i < amountQuizzQuestions; i++) {
+        checkAnswers = createdQuizz.questions[i].answers.find(findUnassigned);
+    }
+    console.log(checkQuestions, checkAnswers);
+    if (checkQuestions === undefined && checkAnswers === undefined) {
+        quizzQuestionsAreRight = true;
     }
 }
-*/
+
+function findUnassigned(quizz) {
+    if (quizz.title === "unassigned" ||
+        quizz.color === "unassigned" ||
+        quizz.text === "unassigned" ||
+        quizz.image === "unassigned") {
+        return true;
+    }
+}
+
 function showLevelBoxes() {
     const quizzLevelBoxes = document.querySelector(".quizz-levels");
 
@@ -352,7 +376,7 @@ function showLevelBoxes() {
                     <input type="url" placeholder="URL da imagem do nível">
                     <input type="text" placeholder="Descrição do nível">
                 </div>
-            </div>`
+            </div>`;
     }
 }
 
@@ -409,10 +433,42 @@ function checkSaveQuizzLevelsText(listOfNodes, counter) {
 
 function proceedToSaveQuizzOrAlert() {
 
-    if (false) {
-        alert("Começa tudo mais uma vez...")
+    if (quizzLevelsAreRight) {
+        saveCreatedQUizz();
+    } else {
+        alert(`Uma ou mais informações adicionadas não estão corretas.
+                -Título do nível: mínimo de 10 caracteres;
+                -URL da imagem do nível: deve ter formato de URL;
+                -Descrição do nível: mínimo de 30 caracteres;
+                -% de acerto mínima: um número entre 0 e 100.
+                -É obrigatório existir pelo menos 1 nível
+                cuja % de acerto mínima seja 0%.`);
     }
-    saveCreatedQUizz();
+
+}
+
+function checkIfLevelsAreCorrect() {
+    const checkLevels = createdQuizz.levels.find(findUnassigned);
+    const checkForZero = createdQuizz.levels.find(findZero);
+
+    if (checkLevels === undefined && checkForZero !== undefined) {
+        quizzLevelsAreRight = true;
+    }
+}
+
+function findUnassigned(quizz) {
+    if (quizz.title === "unassigned" ||
+        quizz.image === "unassigned" ||
+        quizz.text === "unassigned" ||
+        quizz.minValue === "unassigned") {
+        return true;
+    }
+}
+
+function findZero(quizz) {
+    if (quizz.minValue === 0) {
+        return true;
+    }
 }
 
 function saveCreatedQUizz() {
@@ -423,9 +479,9 @@ function saveCreatedQUizz() {
 }
 
 function createdQuizzIsSafe(response) {
-    console.log(response);
-
-    proceedToFinishedQuizz()
+    createdQuizzId = response.data.id;
+    saveCreatedQuizzId();
+    proceedToFinishedQuizz();
 }
 
 function createdQuizzIsNotSafe(response) {
@@ -446,9 +502,11 @@ function goBackHome() {
     document.querySelector(".first-page").classList.remove("hidden");
 }
 
+function saveCreatedQuizzId() {
 
-
-
-
-
-
+    const idFromStorage = localStorage.getItem("userIds");
+    const idUnserialized = JSON.parse(idFromStorage);
+    idUnserialized.push(createdQuizzId);
+    const idToStorage = JSON.stringify(idUnserialized);
+    localStorage.setItem("userIds", idToStorage);
+}
