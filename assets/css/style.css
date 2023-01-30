@@ -249,15 +249,17 @@ input::placeholder {
 .my-quiz figcaption,
 .quiz figcaption {
     width: 340px;
-    height: 51px;
+    height: 60px;
     position: absolute;
-    top: 130px;
+    top: 121px;
     font-weight: 400;
     font-size: 19px;
     color: #FFFFFF;
-    text-align: center;
+    text-align: initial;
+    padding-left: 15px;
     border-radius: 5px;
     background-image: linear-gradient(to top, black, transparent);
+    padding-top: 15px;
 }
 
 
