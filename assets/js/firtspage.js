@@ -9,8 +9,8 @@ function pageCreateQuiz() {
 }
 
 function getQuizzes(){
-    axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes')
-    .then(quizzes => {
+    const promisse = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes')
+    promisse.then(quizzes => {
         testQuizz = quizzes.data
         renderUserQuizzes(quizzes.data)
         renderQuizzes(quizzes.data)
@@ -21,6 +21,7 @@ function getQuizzes(){
         window.location.reload(true)
     })
 }
+
 
 function showMyQuizzes() {
     let hideMenu = document.querySelector('.menu-quiz')
