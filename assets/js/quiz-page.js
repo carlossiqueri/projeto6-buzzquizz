@@ -1,8 +1,74 @@
-let arrayRespostas = [];
+let posicao;
+let click = 0;
+let pontuacao = 0;
+let a =[];
+let idRender;
 let retorna;
-let contador = 0;
+let t;
 
-function refresh() {
+function selectUserQuizz(element){
+    click = 0;
+    pontuacao = 0;
+    window.scrollTo(0, 0);
+    let quizzList = document.querySelectorAll(".my-quizzes-all .my-quizzes-list .my-quiz");
+
+    for (let i = 0; i<quizzList.length; i++){
+        if(element === quizzList[i]){
+            idRender = element.id
+        }
+    }
+
+    trazerId();
+}
+
+function selectQuizz(element){
+    click = 0;
+    pontuacao = 0;
+    window.scrollTo(0, 0);
+    let quizzList = document.querySelectorAll(".all-quizzes .quiz");
+
+    for (let i = 0; i<quizzList.length; i++){
+        if(element === quizzList[i]){
+            posicao = i;
+        }
+    }
+    idRender = Quizz[posicao].id
+    trazerId();
+}
+
+
+function trazerId(){
+    let promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${idRender}`);
+    promise.then(r => {
+        respostaBoa(r)
+        goToQuiz();
+        renderQuestions();
+    });
+}
+
+function respostaBoa(r){
+    retorna = r.data;
+    console.log('TOP:')
+    console.log(retorna);
+}
+
+function goToQuiz(){
+    let tela1 = document.querySelector('.first-page')
+    let tela2 = document.querySelector('.quizzPage')
+    let tela3 = document.querySelector('.quizz-creation')
+
+    tela1.classList.add('hidden')
+    tela2.classList.remove('hidden')
+    tela3.classList.add('hidden')
+
+}
+
+function compare() { 
+	return Math.random() - 0.5; 
+}
+
+
+/*function refresh() {
     window.location.reload()
 }
 function compare() { 
@@ -12,58 +78,10 @@ function compare() {
 //FUNÇÃO QUE LIMPA A HOME E RENDERIZA TODO O QUIZ SELECIONADO
 
 function goToQuiz(quizz) {
-    renderQuizzPage();    
-    renderQuizz();
-}
-
-function renderQuizzPage(){
-    document.querySelector('.first-page').classList.add('hidden');
-    let quizzPage = document.querySelector('.quizzPage');
-    quizzPage.classList.remove('hidden');
-    quizzPage.innerHTML = "";
+    //teste buscando id do quiz selecionado
+    const elementIdQuiz = quizz.getAttribute('id');
     
-    
-}
-
-function renderQuizz() {
-    let banner = document.querySelector('.quizzBanner');
-    let respostas = document.querySelector('.quizzAnswers');
-    respostas.innerHTML = '';
-   
-
-    banner.innerHTML = 
-    `
-    <div class="quizzBanner">   
-                <img src="${quizz.image}" alt="">
-                <h3>${quizz.title}</h3>
-            </div>
-    `
-
-    for (let i = 0; i < retorna.questoes.length; i++){
-        respostas.innerHTML = 
-        `
-        <div class="quizzAnswers">
-        <div>
-            <h4>Qual é a comida mais famosa?</h4>
-        </div>
-        <div class="containerQuizzes">
-            <div>
-                <img src="./assets/img/brownie.jpeg" alt="" class="choosenAnswer">
-                <p>bxcxbbxcv</p>
-            </div>
-            <div>
-                <img src="./assets/img/carbonara.jpeg" alt="" class="choosenAnswer">
-                <p>zxczc</p>
-            </div>
-            <div>
-                <img src="./assets/img/bife-a-milanesa.jpeg" alt="" class="choosenAnswer">
-                <p>bife a asdasdsada</p>
-            </div>
-            <div>
-                <img src="./assets/img/a-la-minuta.jpeg" alt="">
-                <p>asdsdsad</p>
-        `
-    }
+    return console.log(elementIdQuiz)
 }
 
 //QUIZZ USER
@@ -120,7 +138,7 @@ function choosenAnswer(){
             resposta.classList.add('choosenAnswer'); // add opacidade
         }
     }
-    scrollAnswers(){
+    scrollAnswers() {
         respostas.scrollIntoView();
     }
     setTimeout(scrollAnswers, 2000);
@@ -134,4 +152,4 @@ function checkAnswer (){
             resposta.classList.add('respostaErrada');
         }
     }
-}
+} */
