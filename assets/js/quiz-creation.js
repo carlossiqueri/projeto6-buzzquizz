@@ -312,6 +312,8 @@ function checkSaveQuizzThirdIncorrectAnswerImgUrl(listOfNodes, counter) {
 
 function proceedToLevelsOrAlert() {
 
+    checkIfQUestionsAreCorrect()
+
     if (false) {
         alert("Começa tudo mais uma vez")
 
@@ -324,6 +326,17 @@ function proceedToLevelsOrAlert() {
     }
 }
 
+/*
+Parei aqui funcão para verificar cada etapa, questions e níveis
+function checkIfQUestionsAreCorrect() {
+    createdQuizz.questions.find(findUnassigned);
+    function findUnassigned () {
+        if (createdQuizz.questions.title === "unassigned" ||
+            createdQuizz.questions.color === "unassigned") {
+            }
+    }
+}
+*/
 function showLevelBoxes() {
     const quizzLevelBoxes = document.querySelector(".quizz-levels");
 
