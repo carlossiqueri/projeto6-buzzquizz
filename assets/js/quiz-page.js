@@ -95,6 +95,7 @@ function renderQuizzPage() {
     quizzPage.classList.remove('hidden');
     quizzPage.querySelector('.quizzBanner').innerHTML = "";
     quizzPage.querySelector('.quizzAnswers').innerHTML = "";
+    quizzPage.querySelector('.containerLevels').innerHTML = "";
 
 }
 
@@ -137,6 +138,20 @@ function renderQuizz() {
         `
         //arrayRespostas.push(respostas);
     }
+
+    let level = document.querySelector('.containerLevels');
+    level.innerHTML = level.innerHTML +
+    `
+    <div class="containerLevels">
+                <div class="levelTitle">
+                    <h5>${mockQuizz1.levels.title}</h5>
+                </div>
+                <div class="levelDescription">
+                    <img src="${mockQuizz1.levels.image}">
+                    <p>${mockQuizz1.levels.text}.</p>
+                </div>
+            </div>
+    `
 }
 
 //QUIZZ USER
